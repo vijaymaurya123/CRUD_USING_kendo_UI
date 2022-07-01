@@ -21,15 +21,8 @@ namespace te.Controllers
 
         public JsonResult GetUser([DataSourceRequest] DataSourceRequest request)
         {
-            IEnumerable<Usermodel> userlist = (from obj in db.tblusers
-                                               select new Usermodel()
-                                               {
-                                                   userid=obj.userid,
-                                                   email=obj.email,
-                                                   mobile=obj.mobile,
-                                                   password=obj.password,
-                                                   dob=obj.dob
-                                               }).ToList();
+           
+            var userlist = db.tblusers.ToList();
             return Json(userlist.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
 
