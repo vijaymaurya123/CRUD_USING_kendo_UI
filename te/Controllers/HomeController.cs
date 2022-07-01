@@ -33,7 +33,7 @@ namespace te.Controllers
 
            
         }
-        [HttpPost]
+        
         public void UpdateEmployee(tbluser emp)
         {
             tbluser obj = db.tblusers.FirstOrDefault(x=>x.userid==emp.userid);
