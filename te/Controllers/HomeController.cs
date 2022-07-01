@@ -18,26 +18,19 @@ namespace te.Controllers
         {
             return View();
         }
-
         public JsonResult GetUser([DataSourceRequest] DataSourceRequest request)
-        {
-           
+        {           
             var userlist = db.tblusers.ToList();
             return Json(userlist.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
-
         public void AddEmployee(tbluser emp)
         {
             db.tblusers.Add(emp);
-            db.SaveChanges();
-
-           
+            db.SaveChanges();           
         }
-        
         public void UpdateEmployee(tbluser emp)
         {
             tbluser obj = db.tblusers.FirstOrDefault(x=>x.userid==emp.userid);
-
             obj.userid = emp.userid;
             obj.email = emp.email;
             obj.mobile = emp.mobile;
@@ -46,7 +39,6 @@ namespace te.Controllers
             db.Entry(obj).State = System.Data.EntityState.Modified;
             db.SaveChanges();
         }
-
         public void DeleteEmployee(tbluser emp)
         {
             var data = db.tblusers.Find(emp.userid);

@@ -31,7 +31,6 @@
         .Model(model => model.Id(expression: p => p.userid))
         .Read(read=>read.Action("GetUser","Home"))
         .Destroy(destroy => destroy.Action("DeleteEmployee", "Home"))
-
         .PageSize(10)
         )
          .ToolBar(toolbar =>
